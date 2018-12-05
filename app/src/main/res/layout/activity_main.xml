@@ -83,7 +83,7 @@
         android:layout_height="70dp"
         android:gravity="center"
         android:orientation="vertical"
-        app:arc_count="5"
+        app:arc_count="6"
         app:interval_angle="20"
         app:layout_constraintBottom_toBottomOf="@id/circleProgressView3"
         app:layout_constraintLeft_toRightOf="@id/circleProgressView3">
