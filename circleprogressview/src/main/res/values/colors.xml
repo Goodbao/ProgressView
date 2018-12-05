@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="base_progress_light">#dcdcdc</color>
+    <color name="base_progress_height">#838282</color>
+    <color name="progress_light">#4fcaec</color>
+    <color name="progress_height">#f90095</color>
+
+    <color name="progress_1">#0afc8f</color>
+    <color name="progress_2">#0ef4ce</color>
+    <color name="progress_3">#b21afd</color>
+    <color name="progress_4">#f9049b</color>
+</resources>

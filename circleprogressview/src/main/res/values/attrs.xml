@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CircleProgressView">
+        <!-- 底层进度条浅颜色 -->
+        <attr name="base_progress_light_color" format="color" />
+        <!-- 底层进度条深颜色 -->
+        <attr name="base_progress_height_color" format="color" />
+        <!-- 进度条浅颜色 -->
+        <attr name="progress_light_color" format="color" />
+        <!-- 进度条深颜色 -->
+        <attr name="progress_height_color" format="color" />
+        <!-- 进度条宽度 -->
+        <attr name="progress_width" />
+        <!-- 绘制半径 -->
+        <attr name="progress_radius" format="dimension" />
+        <!-- 顺时针转 -->
+        <attr name="progress_clockwise" format="boolean" />
+        <!-- 周期 -->
+        <attr name="progress_period" format="integer" />
+        <!-- 刷新间隔，最低应该是16.67ms，按1s 60帧来算 -->
+        <attr name="progress_speed" format="integer" />
+        <!-- 循环播放 -->
+        <attr name="progress_recycler" format="boolean" />
+    </declare-styleable>
+
+
+    <!-- 背景颜色 -->
+    <attr name="background_color" format="color" />
+    <!-- 进度条背景颜色 -->
+    <attr name="progress_background_color" format="color" />
+    <!-- 进度条颜色 -->
+    <attr name="progress_color" format="color" />
+    <!-- 进度条宽度 -->
+    <attr name="progress_width" format="dimension" />
+    <!-- 最大进度 -->
+    <attr name="max_progress" format="integer" />
+    <!-- 进度 -->
+    <attr name="progress" format="integer" />
+    <!-- 分段数 -->
+    <attr name="arc_count" format="integer" />
+    <!-- 间隔角度 -->
+    <attr name="interval_angle" format="float" />
+    <!-- 等级 -->
+    <attr name="grade" format="integer"/>
+
+
+    <declare-styleable name="ProgressLinearLayout">
+        <!-- 背景颜色 -->
+        <attr name="background_color" />
+        <!-- 进度条背景颜色 -->
+        <attr name="progress_background_color" />
+        <!-- 进度条颜色 -->
+        <attr name="progress_color" />
+        <!-- 进度条宽度 -->
+        <attr name="progress_width" />
+        <!-- 最大进度 -->
+        <attr name="max_progress" />
+        <!-- 进度 -->
+        <attr name="progress" />
+    </declare-styleable>
+
+    <declare-styleable name="GradeProgressView">
+        <!-- 背景颜色 -->
+        <attr name="background_color" />
+        <!-- 进度条背景颜色 -->
+        <attr name="progress_background_color" />
+        <!-- 进度条宽度 -->
+        <attr name="progress_width" />
+        <!-- 分段数 -->
+        <attr name="arc_count" />
+        <!-- 间隔角度 -->
+        <attr name="interval_angle" />
+        <!-- 等级 -->
+        <attr name="grade"/>
+    </declare-styleable>
+</resources>

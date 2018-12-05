@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/btn_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="start"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/btn_pause" />
+
+    <Button
+        android:id="@+id/btn_pause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="pause"
+        app:layout_constraintLeft_toRightOf="@id/btn_start"
+        app:layout_constraintRight_toLeftOf="@+id/btn_continue" />
+
+    <Button
+        android:id="@+id/btn_continue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="continue"
+        app:layout_constraintLeft_toRightOf="@id/btn_pause"
+        app:layout_constraintRight_toLeftOf="@+id/btn_reset" />
+
+    <Button
+        android:id="@+id/btn_reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="reset"
+        app:layout_constraintLeft_toRightOf="@id/btn_continue"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <EditText
+        android:id="@+id/et_progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="input progress : 0 - 100"
+        android:inputType="number"
+        app:layout_constraintTop_toBottomOf="@id/btn_start" />
+
+    <com.bao.circleprogressview.CircleProgressView
+        android:id="@+id/circleProgressView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:base_progress_height_color="@color/base_progress_height"
+        app:base_progress_light_color="@color/base_progress_light"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:progress_clockwise="true"
+        app:progress_height_color="@color/progress_height"
+        app:progress_light_color="@color/progress_light"
+        app:progress_period="3000"
+        app:progress_radius="100dp"
+        app:progress_recycler="true"
+        app:progress_width="5dp" />
+
+    <com.bao.circleprogressview.CircleProgressView
+        android:id="@+id/circleProgressView2"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        app:layout_constraintBottom_toBottomOf="@id/circleProgressView"
+        app:layout_constraintLeft_toLeftOf="@id/circleProgressView"
+        app:layout_constraintRight_toRightOf="@id/circleProgressView"
+        app:layout_constraintTop_toTopOf="@id/circleProgressView" />
+
+    <com.bao.circleprogressview.CircleProgressView
+        android:id="@+id/circleProgressView3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/circleProgressView" />
+
+    <com.bao.circleprogressview.GradeProgressView
+        android:id="@+id/powerProgress"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:arc_count="5"
+        app:interval_angle="20"
+        app:layout_constraintBottom_toBottomOf="@id/circleProgressView3"
+        app:layout_constraintLeft_toRightOf="@id/circleProgressView3">
+
+
+        <TextView
+            android:id="@+id/tvPower"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="w"
+            android:textColor="@color/colorAccent"
+            android:textSize="12sp" />
+
+    </com.bao.circleprogressview.GradeProgressView>
+
+    <com.bao.circleprogressview.ProgressLinearLayout
+        android:id="@+id/progressView"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@id/circleProgressView3"
+        app:layout_constraintLeft_toRightOf="@id/powerProgress"
+        app:progress_color="@color/colorAccent">
+
+        <TextView
+            android:id="@+id/tvDistance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="km"
+            android:textColor="@color/colorAccent"
+            android:textSize="12sp" />
+
+    </com.bao.circleprogressview.ProgressLinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>
