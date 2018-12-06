@@ -29,7 +29,7 @@ public class ProgressLinearLayout extends LinearLayout {
     //进度条颜色
     private int progressColor = Color.parseColor("#7DB2F8");
     //进度条宽度
-    private float progressPaintWidth = dp2px(4);
+    private float progressWidth = dp2px(4);
     //绘制区域
     private RectF rectF;
     //进度条半径
@@ -63,7 +63,7 @@ public class ProgressLinearLayout extends LinearLayout {
             } else if (R.styleable.ProgressLinearLayout_progress_color == attr) {
                 progressColor = typedArray.getColor(attr, progressColor);
             } else if (R.styleable.ProgressLinearLayout_progress_width == attr) {
-                progressPaintWidth = typedArray.getDimensionPixelSize(attr, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4, getResources().getDisplayMetrics()));
+                progressWidth = typedArray.getDimensionPixelSize(attr, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4, getResources().getDisplayMetrics()));
             } else if (R.styleable.ProgressLinearLayout_max_progress == attr) {
                 maxProgress = typedArray.getInteger(attr, maxProgress);
             } else if (R.styleable.ProgressLinearLayout_progress == attr) {
@@ -80,10 +80,10 @@ public class ProgressLinearLayout extends LinearLayout {
         backgroundPaint.setStyle(Paint.Style.FILL);
         backgroundPaint.setAntiAlias(true);
         backgroundPaint.setColor(backgroundColor);
-        backgroundPaint.setStrokeWidth(progressPaintWidth);
+        backgroundPaint.setStrokeWidth(progressWidth);
 
         progressBackgroundPaint = new Paint();
-        progressBackgroundPaint.setStrokeWidth(progressPaintWidth);
+        progressBackgroundPaint.setStrokeWidth(progressWidth);
         progressBackgroundPaint.setColor(progressBackgroundColor);
         progressBackgroundPaint.setStyle(Paint.Style.STROKE);
         //圆润画笔
@@ -92,7 +92,7 @@ public class ProgressLinearLayout extends LinearLayout {
         progressBackgroundPaint.setAntiAlias(true);
 
         progressPaint = new Paint();
-        progressPaint.setStrokeWidth(progressPaintWidth);
+        progressPaint.setStrokeWidth(progressWidth);
         progressPaint.setColor(progressColor);
         progressPaint.setStyle(Paint.Style.STROKE);
         //圆润画笔
@@ -124,10 +124,10 @@ public class ProgressLinearLayout extends LinearLayout {
         if (null == rectF) {
             //控件范围
             radius = (width > height ? height : width) / 2;
-            rectF = new RectF(width / 2 - radius + progressPaintWidth / 2,
-                    height / 2 - radius + progressPaintWidth / 2,
-                    width / 2 + radius - progressPaintWidth / 2,
-                    height / 2 + radius - progressPaintWidth / 2);
+            rectF = new RectF(width / 2 - radius + progressWidth / 2,
+                    height / 2 - radius + progressWidth / 2,
+                    width / 2 + radius - progressWidth / 2,
+                    height / 2 + radius - progressWidth / 2);
         }
         measureChildren(widthMeasureSpec, heightMeasureSpec);
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
@@ -144,9 +144,37 @@ public class ProgressLinearLayout extends LinearLayout {
 
     public void setProgress(int porgress) {
         this.progress = porgress;
+        invalidate();
     }
 
     public void setMaxProgress(int maxProgress) {
         this.maxProgress = maxProgress;
+        invalidate();
+    }
+
+    /**
+     * 设置进度条宽度
+     *
+     * @param width
+     */
+    public void setProgressWidth(int width) {
+        this.progressWidth = dp2px(width);
+        invalidate();
+    }
+
+    /**
+     * 设置进度条背景颜色
+     */
+    public void setProgressBackgroundColor(int color) {
+        this.progressBackgroundColor = color;
+        invalidate();
+    }
+
+    /**
+     * 设置背景颜色
+     */
+    public void setBackgroundColor(int color) {
+        this.backgroundColor = color;
+        invalidate();
     }
 }
