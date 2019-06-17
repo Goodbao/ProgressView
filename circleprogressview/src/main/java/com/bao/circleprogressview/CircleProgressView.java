@@ -63,7 +63,9 @@ public class CircleProgressView extends View {
     //顺时针
     private boolean progress_clockwise = true;
     //速度,刷新频率最快60帧，参数为每次刷新的间隔，单位：毫秒
-    private long speed = 17;
+    private long speed = 33;
+    //30帧的绘制速度
+    private int frame = 30;
     //转一圈的周期，单位：毫秒
     private long period = 3000;
     //循环
@@ -84,12 +86,12 @@ public class CircleProgressView extends View {
                 case START:
                     //顺时针转
                     if (progress_clockwise) {
-                        //每圈360°不变，共period辣么长的ms，360f/period算出每ms转的角度，再用结果*speek就是每次刷新转的角度
-                        progress_angle += 360f / period * speed;
+                        //每圈360°不变，共period辣么长的ms，360f/period算出每ms转的角度，再用结果*frame就是每次刷新转的角度
+                        progress_angle += 360f / period * frame;
                     }
                     //逆时针转
                     else {
-                        progress_angle -= 360f / period * speed;
+                        progress_angle -= 360f / period * frame;
                     }
                     //进度
                     if (onProgressListener != null) {
@@ -177,9 +179,9 @@ public class CircleProgressView extends View {
             } else if (attr == R.styleable.CircleProgressView_progress_period) {
                 period = typedArray.getInteger(attr, 3000);
 
-            } else if (attr == R.styleable.CircleProgressView_progress_speed) {//最低17ms
-                speed = typedArray.getInteger(attr, 17);
-
+            } else if (attr == R.styleable.CircleProgressView_progress_frame) {//最低17ms
+                frame = typedArray.getInteger(attr, 17);
+                speed = 1000 / frame;
             } else if (attr == R.styleable.CircleProgressView_progress_recycler) {
                 progress_recycler = typedArray.getBoolean(attr, false);
 
